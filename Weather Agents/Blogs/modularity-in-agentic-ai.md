@@ -42,7 +42,7 @@ def get_weather(city: str) -> str:
     except Exception as e:
         return (f"Error occurred: {str(e)}")
 ```
-##What makes this function design less than an optimal choice? 
+## What makes this function design less than an optimal choice? 
 
 The function's length is an early warning sign – it's trying to do too much. 
 
@@ -53,7 +53,7 @@ The function's length is an early warning sign – it's trying to do too much.
 - Understanding Gaps: Long functions run the risk of being poorly understood by the LLM’s. It must unpack everything before suggesting fixes or improvements.
 - Potentially increased cognitive load increases the risk of hallucinated responses by the LLM.
 
-##Modularity in tool design means that the functions are lucid and clear for the LLM's. A critical consequence of this is that the functions are self-contained. There are extremely clear and unambiguous descriptions explaining the goal of the function, its input arguments, and its output.
+## Modularity in tool design means that the functions are lucid and clear for the LLM's. A critical consequence of this is that the functions are self-contained. There are extremely clear and unambiguous descriptions explaining the goal of the function, its input arguments, and its output.
 
 ## Modular Design example: 
 
@@ -127,7 +127,7 @@ def get_weather(city : str) -> str:
 
 ```
 
-##The above modular organization of functions is easy to read and provides a clear understanding of what each function is doing. There is a progressive build-up of the solution between one function to the next, as it moves from raw data to a travel advisory.
+## The above modular organization of functions is easy to read and provides a clear understanding of what each function is doing. There is a progressive build-up of the solution between one function to the next, as it moves from raw data to a travel advisory.
 
 **If a human reader can definitely say what each function does, one can rest assured that an AI agent will understand it well.**
 
@@ -139,20 +139,20 @@ Modularity has allowed us to enhance each function in a way that will allow an A
 - Testing:  Each function can be tested independently with it's own edge cases.
 - Scaling - Transitioning to a multi-agent set-up is easier where each agent can own a specific function.  
  
-##Why is modularity in tool design crucial for the success of Autonomous Agents?
+## Why is modularity in tool design crucial for the success of Autonomous Agents?
 
-###Tool selection:
+### Tool selection:
 Agents rely on tools to retrieve current information; a crucial ability that allows them to accomplish goals. Tools give agents the agency to autonomously complete tasks.  Well written crisp functions with clear responsibility allow the agents to select the right tool to accomplish a given task.
 
-###Scaling:
+### Scaling:
 Modular functions articulated with a clear responsibility make it easier to transition from a single agent to a multi-agent set-up, where each agent can be linked to a specific tool/function.
 
-###Parallelism:
+### Parallelism:
 In a multi-agent set-up functions and tools can be executed parallely as they have minimal overlap amongst themselves. A modular tool design with clear separation of concerns enables parallel execution of functions.
 
 
 
-## 🧩 Agentic Execution Framework
+## Agentic Execution Framework
 
 | Agentic Framework        | Tools/Functions                                                                 | Purpose                                                                 | Agent Linkage                                                                                      | Notes                                      |
 |--------------------------|---------------------------------------------------------------------------------|-------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|--------------------------------------------|
