@@ -2,7 +2,7 @@
 
 ## Modularity as a design principle is a critical enabler for Agentic AI systems. This holds true regardless of the problem being solved and whether it is a single agent or a multi-agent set-up.  In this blog i use a simple single agent exercise to explore how modularity in tool design enables an Agentic AI solution to extend and adapt to future use-cases.
 
-## Here is a Monolithic design example that works but scales poorly. 
+### Here is a Monolithic design example that works but scales poorly. 
 ```python
 ### @tool
 def get_weather(city: str) -> str:
@@ -42,7 +42,7 @@ def get_weather(city: str) -> str:
     except Exception as e:
         return (f"Error occurred: {str(e)}")
 ```
-## What makes this function design less than an optimal choice? 
+### What makes this function design less than an optimal choice? 
 
 The function's length is an early warning sign – it's trying to do too much. 
 
@@ -53,9 +53,9 @@ The function's length is an early warning sign – it's trying to do too much.
 - Understanding Gaps: Long functions run the risk of being poorly understood by the LLM’s. It must unpack everything before suggesting fixes or improvements.
 - Potentially increased cognitive load increases the risk of hallucinated responses by the LLM.
 
-## Modularity in tool design means that the functions are lucid and clear for the LLM's. A critical consequence of this is that the functions are self-contained. There are extremely clear and unambiguous descriptions explaining the goal of the function, its input arguments, and its output.
+### Modularity in tool design means that the functions are lucid and clear for the LLM's. A critical consequence of this is that the functions are self-contained. There are extremely clear and unambiguous descriptions explaining the goal of the function, its input arguments, and its output.
 
-## Modular Design example: 
+### Modular Design example: 
 
 ###
 ```python
@@ -127,7 +127,7 @@ def get_weather(city : str) -> str:
 
 ```
 
-## The above modular organization of functions is easy to read and provides a clear understanding of what each function is doing. There is a progressive build-up of the solution between one function to the next, as it moves from raw data to a travel advisory.
+### The above modular organization of functions is easy to read and provides a clear understanding of what each function is doing. There is a progressive build-up of the solution between one function to the next, as it moves from raw data to a travel advisory.
 
 **If a human reader can definitely say what each function does, one can rest assured that an AI agent will understand it well.**
 
